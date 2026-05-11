@@ -26,10 +26,10 @@ public class LoginPage {
 	@FindBy(id = "login-button")
     private WebElement loginButton;
 	
-	@FindBy(xpath = "/html/body/div/div/div[2]/div[1]/div/div/form/div[3]/h3/text()")
+	@FindBy(xpath = "/html/body/div/div/div[2]/div[1]/div/div/form/div[3]")
 	private WebElement errorMessage;
 	
-	@FindBy(xpath = "/html/body/div/div/div[2]/div[1]/div/div/form/div[3]/h3/text()")
+	@FindBy(xpath = "/html/body/div/div/div[2]/div[1]/div/div/form/div[3]")
 	private WebElement lockedMessage;
 	
 	@FindBy(xpath = "/html/body/div/div/div/div[1]/div[1]/div[2]/div")
@@ -80,6 +80,16 @@ public class LoginPage {
     public String logo_text1() {
     	wait.until(ExpectedConditions.visibilityOf(swaglabs_logo1));
     	return swaglabs_logo1.getText();
+    }
+    
+    public String getLockedMessage() {
+    	wait.until(ExpectedConditions.visibilityOf(lockedMessage));
+    	return lockedMessage.getText();
+    }
+    
+    public String getErrorMessage() {
+    	wait.until(ExpectedConditions.visibilityOf(errorMessage));
+    	return errorMessage.getText();
     }
 
 }
